@@ -7,9 +7,9 @@ import Tools from "./components/Products/Products";
 const App = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Hero />
-      <PostBanner />
+      <PostBanner /> */}
       <Tools />
     </>
   );

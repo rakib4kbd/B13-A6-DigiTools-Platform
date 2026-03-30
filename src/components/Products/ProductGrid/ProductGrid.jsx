@@ -1,12 +1,22 @@
-import React from "react";
 import { use } from "react";
 
-const ProductGrid = ({ toolsPromise }) => {
+const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
   const tools = use(toolsPromise);
+
+  const handleAdd = (tool) => {
+    console.log(tool);
+    if (!cartItems.includes(tool)) {
+      setCartItems([...cartItems, tool]);
+    }
+  };
+
   return (
     <>
-      {tools.map((tool) => (
-        <div className="card bg-base-100 border rounded-2xl border-gray-200">
+      {tools.map((tool, index) => (
+        <div
+          className="card bg-base-100 border rounded-2xl border-gray-200"
+          key={index}
+        >
           <div className="card-body">
             <div className="w-15 h-15 flex items-center justify-center">
               <img src={tool.img} alt="" />
@@ -42,7 +52,12 @@ const ProductGrid = ({ toolsPromise }) => {
               ))}
             </ul>
             <div className="mt-2">
-              <button className="btn btn-primary btn-block rounded-full bg-linear-primary">
+              <button
+                className="btn btn-primary btn-block rounded-full bg-linear-primary"
+                onClick={() => {
+                  handleAdd(tool);
+                }}
+              >
                 Buy Now
               </button>
             </div>

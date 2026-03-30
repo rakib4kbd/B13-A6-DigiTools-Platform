@@ -2,6 +2,7 @@ import React from "react";
 import { Suspense } from "react";
 import ProductGrid from "./ProductGrid/ProductGrid";
 import { useState } from "react";
+import Cart from "./Cart/Cart";
 
 const fetchTools = async () => {
   const res = await fetch("/public/products.json");
@@ -11,6 +12,9 @@ const toolsPromise = fetchTools();
 
 const Products = () => {
   const [selectedProductBtn, setSelectedProductBtn] = useState("products");
+
+  const [cartItems, setCartItems] = useState([]);
+
   const handleClick = (selected) => {
     setSelectedProductBtn(selected);
   };
@@ -40,16 +44,28 @@ const Products = () => {
               }}
               className={`btn btn-lg btn-ghost rounded-full ${selectedProductBtn === "cart" && "bg-linear-primary text-white"}`}
             >
-              Cart (2)
+              Cart ({cartItems.length})
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-7.5 container">
-          <Suspense>
-            <ProductGrid toolsPromise={toolsPromise} />
-          </Suspense>
-        </div>
+        <Cart
+          selectedProductBtn={selectedProductBtn}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+        />
+
+        {selectedProductBtn === "products" && (
+          <div className="grid grid-cols-3 gap-7.5 container">
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <ProductGrid
+                toolsPromise={toolsPromise}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
+            </Suspense>
+          </div>
+        )}
       </div>
     </div>
   );
