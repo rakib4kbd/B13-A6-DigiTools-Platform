@@ -10,10 +10,8 @@ const fetchTools = async () => {
 };
 const toolsPromise = fetchTools();
 
-const Products = () => {
+const Products = ({ cartItems, setCartItems }) => {
   const [selectedProductBtn, setSelectedProductBtn] = useState("products");
-
-  const [cartItems, setCartItems] = useState([]);
 
   const handleClick = (selected) => {
     setSelectedProductBtn(selected);

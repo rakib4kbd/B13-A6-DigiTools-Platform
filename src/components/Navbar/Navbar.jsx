@@ -1,6 +1,7 @@
 import React from "react";
 import DigiTools from "../../assets/DigiTools.png";
-const Navbar = () => {
+import { ShoppingCart } from "lucide-react";
+const Navbar = ({ cartItems }) => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start py-4">
@@ -13,13 +14,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
@@ -69,7 +69,14 @@ const Navbar = () => {
       <div className="navbar-end">
         <ul className="menu menu-horizontal items-center">
           <li className="md:block">
-            <a>Cart</a>
+            <a>
+              <span className="relative">
+                <ShoppingCart />
+                <p className="absolute -top-2 -right-2 text-error font-semibold">
+                  {cartItems}
+                </p>
+              </span>
+            </a>
           </li>
           <li className="hidden md:block">
             <a>Login</a>

@@ -6,7 +6,10 @@ const Cart = ({ selectedProductBtn, cartItems, setCartItems }) => {
     (accumulator, currentValue) => accumulator + currentValue,
     0,
   );
-  console.log(totalPrice);
+
+  const handleCheckout = () => {
+    setCartItems([]);
+  };
 
   return (
     <>
@@ -21,6 +24,14 @@ const Cart = ({ selectedProductBtn, cartItems, setCartItems }) => {
                   <p className="text-sm text-gray-500">Total:</p>
                   <h1 className="font-semibold">${totalPrice}</h1>
                 </div>
+                <button
+                  onClick={() => {
+                    handleCheckout();
+                  }}
+                  className="btn rounded-full bg-linear-primary text-white w-full"
+                >
+                  Proceed To Checkout
+                </button>
               </div>
             ) : (
               <div className="flex items-center justify-center">

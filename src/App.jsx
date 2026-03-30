@@ -2,15 +2,18 @@ import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import PostBanner from "./components/PostBanner/PostBanner";
-import Tools from "./components/Products/Products";
+import { useState } from "react";
+import Products from "./components/Products/Products";
 
 const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <>
-      {/* <Navbar />
+      <Navbar cartItems={cartItems.length} />
       <Hero />
-      <PostBanner /> */}
-      <Tools />
+      <PostBanner />
+      <Products cartItems={cartItems} setCartItems={setCartItems} />
     </>
   );
 };
