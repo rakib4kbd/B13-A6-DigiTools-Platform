@@ -13,7 +13,7 @@ const PostBanner = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-3 gap-3">
           {postBanners.map((postbanner, index) => (
-            <div className="border-r last:border-r-0">
+            <div className="border-r last:border-r-0" key={index}>
               <PostBannerGrid
                 key={index}
                 heading={postbanner.heading}

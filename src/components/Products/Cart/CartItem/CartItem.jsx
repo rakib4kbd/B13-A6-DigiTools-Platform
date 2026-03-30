@@ -1,7 +1,6 @@
 const CartItem = ({ cartItems, setCartItems }) => {
   const handleRemove = (item) => {
     const filteredCart = cartItems.filter((cartItem) => cartItem !== item);
-    console.log(filteredCart);
     setCartItems(filteredCart);
   };
   return (

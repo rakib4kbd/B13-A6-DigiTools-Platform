@@ -1,10 +1,10 @@
+import { Check } from "lucide-react";
 import { use } from "react";
 
 const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
   const tools = use(toolsPromise);
 
   const handleAdd = (tool) => {
-    console.log(tool);
     if (!cartItems.includes(tool)) {
       setCartItems([...cartItems, tool]);
     }
@@ -31,8 +31,8 @@ const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
               <span className="text-gray-500">/{tool.billingCycle}</span>
             </div>
             <ul className="flex flex-col gap-2 text-xs text-gray-500">
-              {tool.features.map((feature) => (
-                <li>
+              {tool.features.map((feature, childKey) => (
+                <li key={childKey}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="size-4 me-2 inline-block text-success"
@@ -53,12 +53,21 @@ const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
             </ul>
             <div className="mt-2">
               <button
-                className="btn btn-primary btn-block rounded-full bg-linear-primary"
+                className={`btn btn-primary btn-block rounded-full ${cartItems.includes(tool) ? "bg-green-700" : "bg-linear-primary"}`}
                 onClick={() => {
                   handleAdd(tool);
                 }}
               >
-                Buy Now
+                {cartItems.includes(tool) ? (
+                  <p className="flex items-center justify-center ">
+                    <span>
+                      <Check className="text-xs" />
+                    </span>
+                    Added To Cart
+                  </p>
+                ) : (
+                  "Buy Now"
+                )}
               </button>
             </div>
           </div>

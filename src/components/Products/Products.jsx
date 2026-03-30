@@ -54,7 +54,7 @@ const Products = ({ cartItems, setCartItems }) => {
         />
 
         {selectedProductBtn === "products" && (
-          <div className="grid grid-cols-3 gap-7.5 container">
+          <div className="grid px-5 md:px-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7.5 container">
             <Suspense fallback={<h1>Loading...</h1>}>
               <ProductGrid
                 toolsPromise={toolsPromise}
