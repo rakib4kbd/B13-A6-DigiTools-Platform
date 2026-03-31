@@ -5,7 +5,7 @@ import { useState } from "react";
 import Cart from "./Cart/Cart";
 
 const fetchTools = async () => {
-  const res = await fetch("/public/products.json");
+  const res = await fetch("/products.json");
   return res.json();
 };
 const toolsPromise = fetchTools();
