@@ -3,7 +3,6 @@ import { use } from "react";
 
 const PricingGrid = ({ pricingPromise }) => {
   const pricingList = use(pricingPromise);
-  console.log(pricingList);
   return (
     <>
       {pricingList.map((item, index) =>
@@ -30,8 +29,8 @@ const PricingGrid = ({ pricingPromise }) => {
                 /Month
               </p>
               <ul className="mt-4 flex flex-col gap-2 text-xs items-start">
-                {item.features.map((feature) => (
-                  <li>
+                {item.features.map((feature, index) => (
+                  <li key={index}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="size-4 me-2 inline-block text-success"
@@ -74,8 +73,8 @@ const PricingGrid = ({ pricingPromise }) => {
                 /Month
               </p>
               <ul className="mt-4 flex flex-col gap-2 text-xs items-start">
-                {item.features.map((feature) => (
-                  <li>
+                {item.features.map((feature, index) => (
+                  <li key={index}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="size-4 me-2 inline-block text-success"

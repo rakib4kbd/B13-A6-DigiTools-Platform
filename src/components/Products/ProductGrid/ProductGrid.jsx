@@ -1,12 +1,51 @@
 import { Check } from "lucide-react";
 import { use } from "react";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
   const tools = use(toolsPromise);
 
+  const badgeColors = {
+    "best seller": {
+      bg: "bg-yellow-200",
+      text: "text-yellow-700",
+    },
+    popular: {
+      bg: "bg-purple-200",
+      text: "text-purple-700",
+    },
+    new: {
+      bg: "bg-green-200",
+      text: "text-green-700",
+    },
+  };
+
   const handleAdd = (tool) => {
     if (!cartItems.includes(tool)) {
       setCartItems([...cartItems, tool]);
+      toast.success(`${tool.title} added to cart`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    } else {
+      toast.info(`${tool.title} already added to cart`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     }
   };
 
@@ -20,7 +59,9 @@ const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
           <div className="card-body">
             <div className="w-15 h-15 flex items-center justify-center">
               <img src={tool.img} alt="" />
-              <span className="badge badge-base rounded-full badge-warning absolute top-2 right-2">
+              <span
+                className={`${badgeColors[tool.badge.toLowerCase()].bg} ${badgeColors[tool.badge.toLowerCase()].text} badge  rounded-full absolute top-2 right-2`}
+              >
                 {tool.badge}
               </span>
             </div>

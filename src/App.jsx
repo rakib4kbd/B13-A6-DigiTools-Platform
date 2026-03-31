@@ -8,6 +8,7 @@ import Steps from "./components/Steps/Steps";
 import Pricing from "./components/Pricing/Pricing";
 import ReadyToTransform from "./components/ReadyToTransform/ReadyToTransform";
 import Footer from "./components/Footer/Footer";
+import { ToastContainer, Bounce } from "react-toastify";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -22,6 +23,7 @@ const App = () => {
       <Pricing />
       <ReadyToTransform />
       <Footer />
+      <ToastContainer stacked />
     </>
   );
 };

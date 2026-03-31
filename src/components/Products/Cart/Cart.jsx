@@ -1,4 +1,5 @@
 import CartItem from "./CartItem/CartItem";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 const Cart = ({ selectedProductBtn, cartItems, setCartItems }) => {
   const priceList = cartItems.map((item) => item.price);
@@ -9,6 +10,17 @@ const Cart = ({ selectedProductBtn, cartItems, setCartItems }) => {
 
   const handleCheckout = () => {
     setCartItems([]);
+    toast.success("Cart checked out!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   return (
@@ -18,7 +30,7 @@ const Cart = ({ selectedProductBtn, cartItems, setCartItems }) => {
           <div className="p-5">
             <h1 className="font-bold mb-3">Your Cart</h1>
             {cartItems.length > 0 ? (
-              <div>
+              <div className="flex flex-col gap-2">
                 <CartItem cartItems={cartItems} setCartItems={setCartItems} />
                 <div className="flex items-center justify-between p-2">
                   <p className="text-sm text-gray-500">Total:</p>
