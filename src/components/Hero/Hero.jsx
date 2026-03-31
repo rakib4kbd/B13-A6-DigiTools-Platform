@@ -5,8 +5,8 @@ import { Play } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="hero my-15">
-      <div className="flex container justify-center items-center gap-15">
+    <div className="my-15">
+      <div className="flex container justify-around items-center gap-15 mx-auto">
         <div className="flex flex-col gap-2 px-5 md:px-0">
           <div className="flex items-center gap-2">
             <img src={focus} alt="" />
@@ -39,7 +39,7 @@ const Hero = () => {
             </button>
           </div>
         </div>
-        <div className="hidden md:block max-w-125">
+        <div className="hidden md:block">
           <img src={banner} alt="" />
         </div>
       </div>

@@ -46,7 +46,7 @@ const Cart = ({ selectedProductBtn, cartItems, setCartItems }) => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center h-100 bg-base-200 rounded-2xl">
                 Your cart is empty.
               </div>
             )}

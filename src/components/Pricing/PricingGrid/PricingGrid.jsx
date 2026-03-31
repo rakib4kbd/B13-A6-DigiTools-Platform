@@ -8,7 +8,7 @@ const PricingGrid = ({ pricingPromise }) => {
       {pricingList.map((item, index) =>
         item.tag ? (
           <div
-            className="card border border-gray-200 rounded-2xl bg-linear-primary text-white hover:shadow-2xl hover:border-[#4F39F6]"
+            className="card border border-gray-200 rounded-2xl bg-linear-primary text-white hover:shadow-2xl hover:border-[#4F39F6] transition duration-300 ease-in-out"
             key={index}
           >
             <div className="card-body relative">
@@ -22,12 +22,12 @@ const PricingGrid = ({ pricingPromise }) => {
                 <h2 className="text-3xl font-bold">{item.name}</h2>
                 <p className="text-gray-200">{item.description}</p>
               </div>
-              <p>
+              <div>
                 <span className="text-2xl font-bold">
                   ${item.price_per_month}
                 </span>
                 /Month
-              </p>
+              </div>
               <ul className="mt-4 flex flex-col gap-2 text-xs items-start">
                 {item.features.map((feature, index) => (
                   <li key={index}>
@@ -50,7 +50,7 @@ const PricingGrid = ({ pricingPromise }) => {
                 ))}
               </ul>
               <div className="mt-6">
-                <button className="btn bg-white text-[#4F39F6] rounded-full btn-block">
+                <button className="btn bg-white text-[#4F39F6] rounded-full btn-block mt-auto">
                   {item.button}
                 </button>
               </div>
@@ -58,23 +58,23 @@ const PricingGrid = ({ pricingPromise }) => {
           </div>
         ) : (
           <div
-            className="card border border-gray-200 rounded-2xl bg-[#F2F2F2] hover:shadow-2xl hover:border-gray-500"
+            className="card border border-gray-200 rounded-2xl bg-[#F2F2F2] hover:shadow-2xl hover:border-gray-500 transition duration-300 ease-in-out"
             key={index}
           >
             <div className="card-body">
-              <div>
+              <div className="flex flex-col gap-2">
                 <h2 className="text-3xl font-bold">{item.name}</h2>
                 <p className="text-gray-500">{item.description}</p>
               </div>
-              <p>
+              <div>
                 <span className="text-2xl font-bold">
                   ${item.price_per_month}
                 </span>
                 /Month
-              </p>
-              <ul className="mt-4 flex flex-col gap-2 text-xs items-start">
+              </div>
+              <div className="mt-4 flex flex-col gap-2 text-xs">
                 {item.features.map((feature, index) => (
-                  <li key={index}>
+                  <p key={index}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="size-4 me-2 inline-block text-success"
@@ -90,10 +90,10 @@ const PricingGrid = ({ pricingPromise }) => {
                       />
                     </svg>
                     <span>{feature}</span>
-                  </li>
+                  </p>
                 ))}
-              </ul>
-              <div className="mt-6">
+              </div>
+              <div className="mt-6 mt-auto">
                 <button className="btn bg-linear-primary text-white rounded-full btn-block">
                   {item.button}
                 </button>
