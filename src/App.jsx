@@ -1,9 +1,13 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import PostBanner from "./components/PostBanner/PostBanner";
 import { useState } from "react";
 import Products from "./components/Products/Products";
+import Stats from "./components/Stats/Stats";
+import Steps from "./components/Steps/Steps";
+import Pricing from "./components/Pricing/Pricing";
+import ReadyToTransform from "./components/ReadyToTransform/ReadyToTransform";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -12,8 +16,12 @@ const App = () => {
     <>
       <Navbar cartItems={cartItems.length} />
       <Hero />
-      <PostBanner />
+      <Stats />
       <Products cartItems={cartItems} setCartItems={setCartItems} />
+      <Steps />
+      <Pricing />
+      <ReadyToTransform />
+      <Footer />
     </>
   );
 };

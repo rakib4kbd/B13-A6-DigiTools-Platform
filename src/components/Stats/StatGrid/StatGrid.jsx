@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostBannerGrid = ({ heading, subheading }) => {
+const StatGrid = ({ heading, subheading }) => {
   return (
     <div className={"flex flex-col items-center justify-center"}>
       <h1 className="font-extrabold text-xl md:text-3xl">{heading}</h1>
@@ -9,4 +9,4 @@ const PostBannerGrid = ({ heading, subheading }) => {
   );
 };
 
-export default PostBannerGrid;
+export default StatGrid;

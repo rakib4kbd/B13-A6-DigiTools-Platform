@@ -3,7 +3,7 @@ import DigiTools from "../../assets/DigiTools.png";
 import { ShoppingCart } from "lucide-react";
 const Navbar = ({ cartItems }) => {
   return (
-    <div className="navbar bg-base-100 shadow-sm px-0 md:px-10">
+    <div className="navbar bg-base-100 shadow-sm px-1 md:px-10">
       <div className="navbar-start py-4">
         <div className="dropdown md:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -26,6 +26,9 @@ const Navbar = ({ cartItems }) => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
+            <li>
+              <a>Login</a>
+            </li>
             <li>
               <a>Products</a>
             </li>
@@ -85,46 +88,6 @@ const Navbar = ({ cartItems }) => {
         <a className="btn bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white rounded-full px-4 py-3">
           Get Started
         </a>
-        <div className="dropdown md:hidden">
-          <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-menu-icon lucide-menu"
-            >
-              <path d="M4 5h16" />
-              <path d="M4 12h16" />
-              <path d="M4 19h16" />
-            </svg>
-          </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <a>Products</a>
-            </li>
-            <li>
-              <a>Features</a>
-            </li>
-            <li>
-              <a>Pricing</a>
-            </li>
-            <li>
-              <a>Testomonials</a>
-            </li>
-            <li>
-              <a>FAQ</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   );

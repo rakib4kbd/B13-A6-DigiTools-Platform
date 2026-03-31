@@ -20,7 +20,9 @@ const Products = ({ cartItems, setCartItems }) => {
     <div className="my-30">
       <div className="container mx-auto">
         <div className="flex flex-col items-center justify-center gap-4 my-10 text-center ">
-          <h1 className="font-extrabold text-5xl">Premium Digital Tools</h1>
+          <h1 className="font-extrabold text-4xl md:text-5xl">
+            Premium Digital Tools
+          </h1>
           <p>
             Choose from our curated collection of premium digital products
             designed
@@ -32,7 +34,7 @@ const Products = ({ cartItems, setCartItems }) => {
               onClick={() => {
                 handleClick("products");
               }}
-              className={`btn btn-lg btn-ghost rounded-full ${selectedProductBtn === "products" && "bg-linear-primary text-white"}`}
+              className={`btn md:btn-lg btn-ghost rounded-full ${selectedProductBtn === "products" && "bg-linear-primary text-white"}`}
             >
               Products
             </button>
@@ -40,7 +42,7 @@ const Products = ({ cartItems, setCartItems }) => {
               onClick={() => {
                 handleClick("cart");
               }}
-              className={`btn btn-lg btn-ghost rounded-full ${selectedProductBtn === "cart" && "bg-linear-primary text-white"}`}
+              className={`btn md:btn-lg btn-ghost rounded-full ${selectedProductBtn === "cart" && "bg-linear-primary text-white"}`}
             >
               Cart ({cartItems.length})
             </button>

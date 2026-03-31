@@ -14,7 +14,7 @@ const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
     <>
       {tools.map((tool, index) => (
         <div
-          className="card bg-base-100 border rounded-2xl border-gray-200"
+          className="card bg-base-100 border rounded-2xl border-gray-200 hover:border-neutral hover:shadow-xl transition duration-300 ease-in-out"
           key={index}
         >
           <div className="card-body">
@@ -53,7 +53,7 @@ const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
             </ul>
             <div className="mt-2">
               <button
-                className={`btn btn-primary btn-block rounded-full ${cartItems.includes(tool) ? "bg-green-700" : "bg-linear-primary"}`}
+                className={`btn btn-primary btn-block rounded-full transition duration-500 ease-in-out ${cartItems.includes(tool) ? "bg-green-700" : "bg-linear-primary"}`}
                 onClick={() => {
                   handleAdd(tool);
                 }}

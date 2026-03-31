@@ -5,8 +5,11 @@ const CartItem = ({ cartItems, setCartItems }) => {
   };
   return (
     <>
-      {cartItems.map((item) => (
-        <div className="flex bg-base-200 items-center justify-between gap-3 p-3">
+      {cartItems.map((item, index) => (
+        <div
+          className="flex bg-base-200 items-center justify-between gap-3 p-3"
+          key={index}
+        >
           <img src={item.img} alt="" />
           <div className="me-auto flex flex-col justify-center" key={item.id}>
             <h1 className="font-semibold text-sm">{item.title}</h1>
