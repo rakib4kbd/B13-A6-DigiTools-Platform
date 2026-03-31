@@ -3,7 +3,7 @@ import PricingGrid from "./PricingGrid/PricingGrid";
 import { Suspense } from "react";
 
 const fetchPricing = async () => {
-  const res = await fetch("/pricing.json");
+  const res = await fetch(`${import.meta.env.BASE_URL}/pricing.json`);
   return res.json();
 };
 
