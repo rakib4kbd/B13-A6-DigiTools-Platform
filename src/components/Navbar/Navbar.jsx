@@ -46,7 +46,7 @@ const Navbar = ({ cartItems }) => {
             </li>
           </ul>
         </div>
-        <a href="/" className="w-30 flex items-center">
+        <a href="#" className="w-30 flex items-center">
           <img src={DigiTools} alt="" />
         </a>
       </div>
