@@ -23,7 +23,7 @@ const CartItem = ({ cartItems, setCartItems }) => {
           className="flex bg-base-300 items-center justify-between gap-3 p-3 rounded-lg"
           key={index}
         >
-          <img src={item.img} alt="" />
+          <img src={`${import.meta.env.BASE_URL}/${item.img}`} alt="" />
           <div className="me-auto flex flex-col justify-center" key={item.id}>
             <h1 className="font-semibold text-sm">{item.title}</h1>
             <p className="text-gray-500 text-sm font-semibold">${item.price}</p>

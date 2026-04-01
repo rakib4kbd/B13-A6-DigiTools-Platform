@@ -58,7 +58,7 @@ const ProductGrid = ({ toolsPromise, cartItems, setCartItems }) => {
         >
           <div className="card-body">
             <div className="w-15 h-15 flex items-center justify-center">
-              <img src={tool.img} alt="" />
+              <img src={`${import.meta.env.BASE_URL}/${tool.img}`} alt="" />
               <span
                 className={`${badgeColors[tool.badge.toLowerCase()].bg} ${badgeColors[tool.badge.toLowerCase()].text} badge  rounded-full absolute top-2 right-2`}
               >
